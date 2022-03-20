@@ -1,0 +1,4 @@
+我的pip檔案位置:
+C:\Users\YUMI8\AppData\Local\Programs\Python\Python37\Scripts
+
+pip install ...
