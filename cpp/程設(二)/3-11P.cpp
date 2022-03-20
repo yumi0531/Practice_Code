@@ -8,7 +8,7 @@ int main()
     string name;
     int st, number;
     int s, i, j;
-    int math[11], temp[10];
+    int temp[10];
     while (cin >> name)
     {
         // s一個一個加
@@ -19,7 +19,7 @@ int main()
             // name = "JYFTYR"
             // arr = {90,105,86,100,105,98}
 
-            math[10] = {0};
+            int math[11] = {0};
             for (i = 0; i < name.size(); i++)
             {
                 math[i] = name[i] - 'A' + st; // ascii
