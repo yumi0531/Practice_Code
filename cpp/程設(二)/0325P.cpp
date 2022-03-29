@@ -22,6 +22,7 @@ void R_function(int speed[], int position[])
     }
 }
 
+
 int main()
 {
     int destination;
