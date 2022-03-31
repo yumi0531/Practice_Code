@@ -1,76 +1,46 @@
 #include <iostream>
+#include <algorithm>
+#include <cmath>
 using namespace std;
-
-/***加速***/
-void A_function(int speed[], int position[])
+const int MAX = 1e4 + 10;
+int dp[MAX] = {0};
+int DP(int x)
 {
-    position[0] += speed[0];
-    speed[0] *= 2;
-}
-
-/***重置速度***/
-void R_function(int speed[], int position[])
-{
-    cout << "hi";
-    if (speed[0] > 0)
-    {
-        speed[0] = -1;
-    }
+    if (dp[x])
+        return dp[x];
     else
     {
-        speed[0] = 1;
+        int k = (int)log2(x) + 1; //未被dp紀錄的數 ex:4 log2(4)=2 k=2+1 , 2^k-1>4 走k步>4
+
+        //超過目標點一次
+        dp[x] = k + 1 + DP((1 << k) - 1 - x); // k步+1(回頭 R)+ 將目前位置視為原點 與目標地點距離為(1<<k)-1-x 求移動到(1<<k)-1-x的最少指令 DP(~)
+        //不超過
+        for (int i = 0; i < k - 1; i++)
+        {
+            dp[x] = min(dp[x], DP(x - (1 << (k - 1)) + (1 << i)) + i + 1 + k); //目標位置-在走一次超過目標點位置+往前移動距離==往前走的位置與目標點的距離 並將其視為原點
+        }
     }
+    return dp[x];
 }
-
-
 int main()
 {
-    int destination;
-    int sum = 0;
-    while (true)
+    int i = 1;
+
+    while ((1 << i) - 1 < MAX)
     {
-        cin >> destination;
-        int position[1] = {0}, speed[1] = {0};
-        bool state = true; // true -> 正向 , false -> 反向
-        if (destination == 0)
+        dp[(1 << i) - 1] = i;
+        i++;
+    }
+    int n = 0;
+    while (cin >> n && n)
+    {
+        if (dp[n])
         {
-            break;
+            cout << dp[n] << '\n';
         }
-
-        speed[0] = 1;
-
-        while (true)
+        else
         {
-            state = true;
-            if (position[0] < destination)
-            {
-                A_function(speed, position);
-                state = true;
-                sum++;
-            }
-            else if (position[0] > destination)
-            {
-                if (state == true)
-                {
-                    R_function(speed, position);
-                    state = false;
-                    sum++;
-                }
-                else
-                {
-                    A_function(speed, position);
-                    state = false;
-                    sum++;
-                }
-            }
-            else if (position[0] == destination)
-            {
-                cout << sum << endl;
-                break;
-            }
+            cout << DP(n) << '\n';
         }
     }
-    sum = 0;
-
-    return 0;
 }
