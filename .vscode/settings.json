@@ -4,6 +4,11 @@
         "vector": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xtr1common": "cpp"
     }
 }
