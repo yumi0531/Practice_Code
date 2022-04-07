@@ -58,9 +58,10 @@ int main()
         // value[num] = v;
         // weight[num] = w;
     }
-    /*sort with (value/weight)*/
+    /*sort with (value/weight)->把兩陣列套在同一個結構陣列比較好同時改*/
     qsort(item_arr + 1, num, sizeof(struct item), cmp);
 
+    /*檢查*/
     // for (int i = 1; i < num + 1; i++)
     // {
     //     cout << "value:" << item_arr[i].value << "weight:" << item_arr[i].weight << endl;
@@ -73,3 +74,36 @@ int main()
 
     return 0;
 }
+
+/*input 1
+18
+45 7
+40 6
+51 85
+57 10
+17 43
+35 84
+*/
+
+/*output 1
+113.500000
+*/
+
+/*input 2
+75
+33 38
+80 87
+3 38
+77 29
+52 51
+82 7
+51 43
+27 34
+39 89
+32 13
+44 66
+*/
+
+/*output 2
+221.837209
+*/
