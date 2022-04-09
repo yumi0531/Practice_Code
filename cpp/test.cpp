@@ -47,28 +47,29 @@ using namespace std;
 /*******************************************************/
 
 /************************* union vs. struct ************************/
-union uu
-{
-    short int id;
-    int income;
-} john;
-// 4
+// union uu
+// {
+//     short int id;
+//     int income;
+// } john;
+// // 4
 
-struct ss
-{
-    short int id;
-    int income;
-} mary;
-// 6
+// struct ss
+// {
+//     short int id;
+//     int income;
+// } mary;
+// // 6
 
-int main()
-{
-    cout << "uu.size = " << sizeof(john) << endl;
-    cout << "ss.size = " << sizeof(mary) << endl;
-    cout << "short int.size = " << sizeof(short int) << endl;
-    cout << "int.size = " << sizeof(int) << endl;
-    return 0;
-}
+// int main()
+// {
+//     cout << "uu.size = " << sizeof(john) << endl;
+//     cout << "ss.size = " << sizeof(mary) << endl;
+//     cout << "short int.size = " << sizeof(short int) << endl;
+//     cout << "int.size = " << sizeof(int) << endl;
+
+//     return 0;
+// }
 
 /************************************88888888888888*******************/
 
@@ -103,3 +104,17 @@ int main()
 //     printList(&a);
 // }
 /*************************************************************/
+
+/*********************string**********************/
+//字串加減
+// int main()
+// {
+//     string str1 = "wel";
+//     string str3 = "me";
+//     char *str2 = "co";
+//     string str4;
+//     str4 = str1 + str2 + str3;
+//     cout << str4;
+//     return 0;
+// }
+/*************************************************/

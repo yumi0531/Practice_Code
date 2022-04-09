@@ -7,15 +7,15 @@ int main()
     bool is_first = true;
     while (cin >> input_str)
     {
-        if (is_first)
-        {
-            is_first = false;
-        }
-        else
-            cout << endl;
+        // if (is_first)
+        // {
+        //     is_first = false;
+        // }
+        // else
+        //     cout << endl;
         cout << "AB Circle #" << case_num << ":" << endl;
         case_num++;
-        //compute total
+        // compute total
         int total_a = 0;
         int total_b = 0;
         for (int i = 0; i < input_str.length(); i++)
