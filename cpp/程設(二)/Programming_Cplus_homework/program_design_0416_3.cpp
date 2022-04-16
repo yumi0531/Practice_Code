@@ -29,7 +29,7 @@ void E(int arr[], int P, int target)
     for (int i = index; i > 0; i--)
     {
         arr[i] = arr[i - 1];
-    }   
+    }
     arr[0] = temp;
 }
 int main()
@@ -37,13 +37,13 @@ int main()
     int case_num = 1;
     while (true)
     {
-        int P, C; //P表總人口 C表行為指令
+        int P, C; // P表總人口 C表行為指令
 
         cin >> P >> C;
         if (P == 0 && C == 0)
             break;
         cout << "Case " << case_num << ":" << endl;
-        int arr[P];
+        int arr[10005];
         for (int i = 0; i < P; i++)
         {
             arr[i] = i + 1;

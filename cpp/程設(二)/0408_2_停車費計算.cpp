@@ -2,8 +2,9 @@
 #include <math.h>
 using namespace std;
 
-struct Parking_Fee
+class Parking_Fee
 {
+public:
     int parking_fee(int hr1, int min1, int hr2, int min2)
     {
         int cost = 0;
