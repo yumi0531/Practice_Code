@@ -1,115 +1,63 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
+
 using namespace std;
+
 int main()
 {
-    int number, i = 0, j = 0;
-    int arr[10];
-    int counter = 0;
-    while (cin >> number)
+    int n[9];
+    bool is_first = true;
+    while (cin >> n[8])
     {
-        if (number != 0)
+        for (int i = 7; i >= 0; i--)
         {
-            arr[i] = number;
-            i++;
-            counter++;
-            break;
+            cin >> n[i];
         }
-    }
-
-    while (cin >> number)
-    {
-        arr[i] = number;
-        i++;
-        counter++;
-    }
-
-    for (i = 0; i < counter; i++)
-    {
-        if (arr[i] == 0)
+        is_first = 1;
+        for (int i = 8; i >= 0; i--)
         {
-            counter--;
-        }
-        else
-        {
-
-            if (arr[i] > 0) //正數
+            if (n[i] == 0)
+                continue;
+            if (is_first && n[i] != 0)
             {
                 if (i == 0)
                 {
-                    //第一位的情況
-                    if (arr[i] == 1)
-                    {
-                        cout << "x^" << counter - i - 1;
-                    }
-                    else
-                    {
-                        cout << arr[i] << "x^" << counter - i - 1;
-                    }
+                    cout << n[i];
                 }
+                else if (n[i] == 1)
+                    cout << "x^" << i;
                 else
-                {
-                    if (i == counter - 1)
-                    {
-                        //最後一位(常數)
-                        cout << " "
-                             << "+"
-                             << " " << arr[i];
-                    }
-                    else
-                    {
-                        if ((i - 1) == 0)
-                        {
-                            // x=1的情況
-                            cout << " "
-                                 << "+"
-                                 << " " << arr[i] << "x";
-                        }
-                        else
-                        {
-                            cout << " "
-                                 << "+"
-                                 << " " << arr[i] << "x^" << counter - i - 1;
-                        }
-                    }
-                }
+                    cout << n[i] << "x^" << i;
+                is_first = false;
+                continue;
             }
+            if (i == 0)
+            {
+                if (n[i] > 0)
+                    cout << " + " << n[i];
+                else
+                    cout << " - " << abs(n[i]);
+                break;
+            }
+            if (i == 1)
+            {
+                if (n[i] == 1)
+                    cout << " + x";
+                else if (n[i] > 0)
+                    cout << " + " << n[i] << 'x';
+                else
+                    cout << " - " << abs(n[i]) << 'x';
+                continue;
+            }
+            if (n[i] == 1)
+                cout << " + "
+                     << "x^" << i;
+            else if (n[i] > 0)
+                cout << " + " << n[i] << "x^" << i;
             else
-            {
-                //負數
-                arr[i] = arr[i] * (-1);
-                if (i == 0)
-                {
-                    //第一位數
-                    cout << "-" << arr[i] << "x^" << counter - i - 1;
-                }
-                else
-                {
-                    if (i == (counter - 1))
-                    {
-                        //最後一位
-                        cout << " "
-                             << "-"
-                             << " " << arr[i];
-                    }
-                    else
-                    {
-                        if ((i - 1) == 0)
-                        {
-                            // x=1的情況
-                            cout << " "
-                                 << "-" 
-                                 << " " << arr[i] << "x";
-                        }
-                        else
-                        {
-                            cout << " "
-                                 << "-"
-                                 << " " << arr[i] << "x^" << counter - i - 1;
-                        }
-                    }
-                }
-            }
+                cout << " - " << abs(n[i]) << "x^" << i;
         }
+        cout << endl;
     }
-    return 0;
 }
