@@ -1,7 +1,7 @@
 
-#include <iostream>
-#include <stdlib.h>
-using namespace std;
+// #include <iostream>
+// #include <stdlib.h>
+// using namespace std;
 
 /**************************指標swap**********************/
 // void swap(int *a, int *b)
@@ -118,3 +118,55 @@ using namespace std;
 //     return 0;
 // }
 /*************************************************/
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+string toBinary(int n)
+{
+    string r;
+    while (n != 0)
+    {
+        r += (n % 2 == 0 ? "0" : "1");
+        n /= 2;
+    }
+    for (int i = r.length() + 1; i <= 5; i++)
+    {
+        r += '0';
+    }
+    string rr(r.rbegin(), r.rend());
+    return rr;
+}
+
+int main()
+{
+    int key, number[10000];
+    string message, str11, strff, answer, hex[17] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+    while (cin >> key >> message)
+    {
+
+        strff = "\0";
+        answer = "\0";
+        for (int i = 0; i < message.length(); i++)
+        {
+            number[i] = (int)((message[i] - 'A') + key) % 31 + 1;
+            strff += toBinary(number[i]);
+        }
+
+        strff += "00000";
+
+        while (strff.length() % 16 != 0)
+        {
+            strff += "0";
+        }
+
+        for (int i = 0; i <= strff.length() - 4; i += 4)
+        {
+            int kk = (int)(strff[0 + i] - '0') * 8 + (int)(strff[1 + i] - '0') * 4 + (int)(strff[2 + i] - '0') * 2 + (int)(strff[3 + i] - '0');
+            answer += hex[kk];
+        }
+        cout << answer << endl;
+    }
+}
+
+//////////////////////////

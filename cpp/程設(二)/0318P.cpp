@@ -1,3 +1,4 @@
+/*多項式*/
 #include <iostream>
 #include <iomanip>
 #include <cmath>
