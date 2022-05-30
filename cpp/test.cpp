@@ -1,7 +1,11 @@
 
-// #include <iostream>
-// #include <stdlib.h>
-// using namespace std;
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <map>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
 /**************************指標swap**********************/
 // void swap(int *a, int *b)
@@ -118,55 +122,196 @@
 //     return 0;
 // }
 /*************************************************/
-#include <iostream>
-#include <string>
-#include <algorithm>
-using namespace std;
-string toBinary(int n)
+// #include <iostream>
+// #include <string>
+// #include <algorithm>
+// using namespace std;
+// string toBinary(int n)
+// {
+//     string r;
+//     while (n != 0)
+//     {
+//         r += (n % 2 == 0 ? "0" : "1");
+//         n /= 2;
+//     }
+//     for (int i = r.length() + 1; i <= 5; i++)
+//     {
+//         r += '0';
+//     }
+//     string rr(r.rbegin(), r.rend());
+//     return rr;
+// }
+
+// int main()
+// {
+//     int key, number[10000];
+//     string message, str11, strff, answer, hex[17] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+//     while (cin >> key >> message)
+//     {
+
+//         strff = "\0";
+//         answer = "\0";
+//         for (int i = 0; i < message.length(); i++)
+//         {
+//             number[i] = (int)((message[i] - 'A') + key) % 31 + 1;
+//             strff += toBinary(number[i]);
+//         }
+
+//         strff += "00000";
+
+//         while (strff.length() % 16 != 0)
+//         {
+//             strff += "0";
+//         }
+
+//         for (int i = 0; i <= strff.length() - 4; i += 4)
+//         {
+//             int kk = (int)(strff[0 + i] - '0') * 8 + (int)(strff[1 + i] - '0') * 4 + (int)(strff[2 + i] - '0') * 2 + (int)(strff[3 + i] - '0');
+//             answer += hex[kk];
+//         }
+//         cout << answer << endl;
+//     }
+// }
+
+//////////////////////////
+//
+// #include <string>
+// int main()
+// {
+//     // char bar[] = "Picard";
+//     // string foo(bar + 2, 4);
+//     // cout << foo;
+
+//     // string bar = "the best world";
+//     // int p = 2;
+//     // string foo(bar, p, string::npos);
+//     // cout << foo;
+
+//     string DNA = "AAA";
+//     string DNA2 = "GCGC";
+//     DNA.append(DNA2, DNA2.begin(), DNA2.begin() + 2);
+//     cout << DNA;
+//     return 0;
+// }
+
+// #include <iostream>
+// #include <map>
+// using namespace std;
+
+// int main()
+// {
+//     map<string, int> COUNTER;
+//     int a;
+//     pair<map<string, int>::iterator, bool> retPair;
+//     retPair = COUNTER.insert(pair<string, int>("Hello", 1));
+//     cout << retPair.second;
+//     retPair = COUNTER.insert(pair<string, int>("Hello", 1));
+//     cout << retPair.second;
+//     cout << COUNTER["hello"];
+//     return 0;
+// }
+/****************/
+// struct taiwan_number
+// {
+//     int value;
+//     string city;
+// };
+// int main()
+// {
+//     string ID;
+//     int number;
+//     map<taiwan_number, char> Taiwan;
+//     taiwan_number A;
+//     A.city = "台北市";
+//     /*縣市表*/
+//     Taiwan.insert(pair<taiwan_number, char>(A, 'A'));
+//     cout <<Tai
+//      return 0;
+// }
+//////////////////////////////////
+/*判斷是否為數字*/
+// bool isNumber(const char str)
+// {
+//     if (isdigit(str) == 0)
+//         return false;
+//     else
+//         return true;
+// }
+// /**/
+// int main()
+// {
+//     string IP = "172.16.254.1";
+//     vector<int> num_arr = {0};
+//     for (int i = 0; i < 20; i++) //把數字提取出來
+//     {
+//         if (i == 0 || i == 4 || i == 8 || i == 12)
+//         {
+//             num_arr.push_back(0);
+//         }
+
+//         if (isNumber(IP[i]) == true)
+//         {
+//             num_arr.push_back((IP[i]) - '0');
+//         }
+//     }
+//     for (auto item : num_arr)
+//     {
+//         cout << item << " ";
+//     }
+
+//     return 0;
+// }
+
+/*異常處理*/
+// class ERR
+// {
+// public:
+//     ERR(int i) : kind(i)
+//     {
+//     }
+//     string err_mesg()
+//     {
+//         if (kind == 1)
+//         {
+//             return "錯誤訊息1";
+//         }
+//         else if (kind == 2)
+//         {
+//             return "錯誤訊息2";
+//         }
+//     }
+
+// private:
+//     int kind;
+// };
+// int main()
+// {
+//     int a = -1;
+//     try
+//     {
+
+//         if (a < 0)
+//         {
+//             throw ERR(2);
+//         }
+//         if (a > 5)
+//         {
+//             throw ERR(1);
+//         }
+//     }
+//     catch (ERR e)
+//     {
+//         cout << e.err_mesg();
+//     }
+//     return 0;
+// }
+struct test
 {
-    string r;
-    while (n != 0)
-    {
-        r += (n % 2 == 0 ? "0" : "1");
-        n /= 2;
-    }
-    for (int i = r.length() + 1; i <= 5; i++)
-    {
-        r += '0';
-    }
-    string rr(r.rbegin(), r.rend());
-    return rr;
-}
+    string str;
+    int num;
+};
 
 int main()
 {
-    int key, number[10000];
-    string message, str11, strff, answer, hex[17] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
-    while (cin >> key >> message)
-    {
-
-        strff = "\0";
-        answer = "\0";
-        for (int i = 0; i < message.length(); i++)
-        {
-            number[i] = (int)((message[i] - 'A') + key) % 31 + 1;
-            strff += toBinary(number[i]);
-        }
-
-        strff += "00000";
-
-        while (strff.length() % 16 != 0)
-        {
-            strff += "0";
-        }
-
-        for (int i = 0; i <= strff.length() - 4; i += 4)
-        {
-            int kk = (int)(strff[0 + i] - '0') * 8 + (int)(strff[1 + i] - '0') * 4 + (int)(strff[2 + i] - '0') * 2 + (int)(strff[3 + i] - '0');
-            answer += hex[kk];
-        }
-        cout << answer << endl;
-    }
+    return 0;
 }
-
-//////////////////////////
