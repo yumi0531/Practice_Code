@@ -1,317 +1,113 @@
-
+/**
+ * 3_3_0-1_knapsack_problem
+ */
 #include <iostream>
-#include <stdlib.h>
-#include <string>
-#include <map>
 #include <vector>
-#include <algorithm>
+
 using namespace std;
 
-/**************************指標swap**********************/
-// void swap(int *a, int *b)
-// {
-//     int temp;
-//     temp = *a;
-//     *a = *b;
-//     *b = temp;
-// }
-// int main()
-// {
-//     int m = 20, n = 60;
-//     cout << "變換前(m,n) = (" << m << "," << n << ")" << endl;
-//     swap(&m, &n);
-//     cout << "變換後(m,n) = (" << m << "," << n << ")" << endl;
-//     return 0;
-// }
-/*******************************************************/
-
-/*************************二維陣列指標宣告****************/
-// int main()
-// {
-//     int m[9][9];
-//     int i, j;
-//     for (i = 1; i <= 9; i++)
-//     {
-//         for (j = 1; j <= 9; j++)
-//         {
-//             *(*(m + i) + j) = i * j;
-//         }
-//     }
-
-//     for (i = 1; i <= 9; i++)
-//     {
-//         for (j = 1; j <= 9; j++)
-//         {
-//             cout << *(*(m + i) + j) << endl;
-//         }
-//     }
-
-//     return 0;
-// }
-/*******************************************************/
-
-/************************* union vs. struct ************************/
-// union uu
-// {
-//     short int id;
-//     int income;
-// } john;
-// // 4
-
-// struct ss
-// {
-//     short int id;
-//     int income;
-// } mary;
-// // 6
-
-// int main()
-// {
-//     cout << "uu.size = " << sizeof(john) << endl;
-//     cout << "ss.size = " << sizeof(mary) << endl;
-//     cout << "short int.size = " << sizeof(short int) << endl;
-//     cout << "int.size = " << sizeof(int) << endl;
-
-//     return 0;
-// }
-
-/************************************88888888888888*******************/
-
-/************************* link list ***********************/
-// struct Node
-// {
-//     int value;
-//     Node *next;
-// };
-
-// void printList(Node *n)
-// {
-//     while (n->value != NULL)
-//     {
-//         cout << n->value << endl;
-//         n = n->next;
-//     }
-// }
-
-// int main()
-// {
-//     // Node *head, tail, mid;
-//     Node a, b, c;
-//     Node *ptr = &a; //宣告ptr，並將他指向節點a
-
-//     a.value = 1;
-//     a.next = &b;
-//     b.value = 2;
-//     b.next = &c;
-//     c.value = 3;
-//     c.next = NULL;
-//     printList(&a);
-// }
-/*************************************************************/
-
-/*********************string**********************/
-//字串加減
-// int main()
-// {
-//     string str1 = "wel";
-//     string str3 = "me";
-//     char *str2 = "co";
-//     string str4;
-//     str4 = str1 + str2 + str3;
-//     cout << str4;
-//     return 0;
-// }
-/*************************************************/
-// #include <iostream>
-// #include <string>
-// #include <algorithm>
-// using namespace std;
-// string toBinary(int n)
-// {
-//     string r;
-//     while (n != 0)
-//     {
-//         r += (n % 2 == 0 ? "0" : "1");
-//         n /= 2;
-//     }
-//     for (int i = r.length() + 1; i <= 5; i++)
-//     {
-//         r += '0';
-//     }
-//     string rr(r.rbegin(), r.rend());
-//     return rr;
-// }
-
-// int main()
-// {
-//     int key, number[10000];
-//     string message, str11, strff, answer, hex[17] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
-//     while (cin >> key >> message)
-//     {
-
-//         strff = "\0";
-//         answer = "\0";
-//         for (int i = 0; i < message.length(); i++)
-//         {
-//             number[i] = (int)((message[i] - 'A') + key) % 31 + 1;
-//             strff += toBinary(number[i]);
-//         }
-
-//         strff += "00000";
-
-//         while (strff.length() % 16 != 0)
-//         {
-//             strff += "0";
-//         }
-
-//         for (int i = 0; i <= strff.length() - 4; i += 4)
-//         {
-//             int kk = (int)(strff[0 + i] - '0') * 8 + (int)(strff[1 + i] - '0') * 4 + (int)(strff[2 + i] - '0') * 2 + (int)(strff[3 + i] - '0');
-//             answer += hex[kk];
-//         }
-//         cout << answer << endl;
-//     }
-// }
-
-//////////////////////////
-//
-// #include <string>
-// int main()
-// {
-//     // char bar[] = "Picard";
-//     // string foo(bar + 2, 4);
-//     // cout << foo;
-
-//     // string bar = "the best world";
-//     // int p = 2;
-//     // string foo(bar, p, string::npos);
-//     // cout << foo;
-
-//     string DNA = "AAA";
-//     string DNA2 = "GCGC";
-//     DNA.append(DNA2, DNA2.begin(), DNA2.begin() + 2);
-//     cout << DNA;
-//     return 0;
-// }
-
-// #include <iostream>
-// #include <map>
-// using namespace std;
-
-// int main()
-// {
-//     map<string, int> COUNTER;
-//     int a;
-//     pair<map<string, int>::iterator, bool> retPair;
-//     retPair = COUNTER.insert(pair<string, int>("Hello", 1));
-//     cout << retPair.second;
-//     retPair = COUNTER.insert(pair<string, int>("Hello", 1));
-//     cout << retPair.second;
-//     cout << COUNTER["hello"];
-//     return 0;
-// }
-/****************/
-// struct taiwan_number
-// {
-//     int value;
-//     string city;
-// };
-// int main()
-// {
-//     string ID;
-//     int number;
-//     map<taiwan_number, char> Taiwan;
-//     taiwan_number A;
-//     A.city = "台北市";
-//     /*縣市表*/
-//     Taiwan.insert(pair<taiwan_number, char>(A, 'A'));
-//     cout <<Tai
-//      return 0;
-// }
-//////////////////////////////////
-/*判斷是否為數字*/
-// bool isNumber(const char str)
-// {
-//     if (isdigit(str) == 0)
-//         return false;
-//     else
-//         return true;
-// }
-// /**/
-// int main()
-// {
-//     string IP = "172.16.254.1";
-//     vector<int> num_arr = {0};
-//     for (int i = 0; i < 20; i++) //把數字提取出來
-//     {
-//         if (i == 0 || i == 4 || i == 8 || i == 12)
-//         {
-//             num_arr.push_back(0);
-//         }
-
-//         if (isNumber(IP[i]) == true)
-//         {
-//             num_arr.push_back((IP[i]) - '0');
-//         }
-//     }
-//     for (auto item : num_arr)
-//     {
-//         cout << item << " ";
-//     }
-
-//     return 0;
-// }
-
-/*異常處理*/
-// class ERR
-// {
-// public:
-//     ERR(int i) : kind(i)
-//     {
-//     }
-//     string err_mesg()
-//     {
-//         if (kind == 1)
-//         {
-//             return "錯誤訊息1";
-//         }
-//         else if (kind == 2)
-//         {
-//             return "錯誤訊息2";
-//         }
-//     }
-
-// private:
-//     int kind;
-// };
-// int main()
-// {
-//     int a = -1;
-//     try
-//     {
-
-//         if (a < 0)
-//         {
-//             throw ERR(2);
-//         }
-//         if (a > 5)
-//         {
-//             throw ERR(1);
-//         }
-//     }
-//     catch (ERR e)
-//     {
-//         cout << e.err_mesg();
-//     }
-//     return 0;
-// }
-struct test
+struct Item
 {
-    string str;
-    int num;
+    int id;     //代號
+    int weight; //重量
+    int value;  //價值
+};
+
+class BackPack
+{
+    int capacity; //背包承重
+    int totalValue;
+    vector<Item> contents;
+
+public:
+    BackPack(int capacity)
+    {
+        this->capacity = capacity;
+    }
+
+    void addItemsAndMaximizeValue(vector<Item> items)
+    {
+        contents.clear();
+        int **valueLogger = new int *[items.size() + 1]; // 物件編號:0~items.size()-1
+        int **itemLogger = new int *[items.size() + 1];
+        //** itemLogger[i][capacityLeft] 記錄在capacity為j的情況下 要不要選擇第i個物品
+        for (int i = 0; i <= items.size(); i++)
+        {
+            valueLogger[i] = new int[capacity + 1];
+            itemLogger[i] = new int[capacity + 1];
+            for (int j = 0; j <= capacity; j++)
+            {
+                itemLogger[i][j] = 0;
+            }
+        }
+        for (int i = 0; i <= capacity; i++)
+            valueLogger[0][i] = 0; //編號0之前 等於是沒有物品 價值一定是0
+        //** valueLogger[k][capacityLeft]
+        // 代表在最大承重為j的情況下 放入編號k(不包含k,所以最後可以超出一格)之前的東西經過挑選 所能得到的最大效益
+        // 我們最終的目標就是要找 在items.size()以前的東西(也就是全部放入全部物品 0~items.size()-1) 的最大效益挑選方法(在capacity內)
+        for (int i = 0; i < items.size(); i++)
+        {
+            for (int j = 0; j <= capacity; j++)
+            {
+                if (items[i].weight > j)
+                {                                              //如果這個東西放不下
+                    valueLogger[i + 1][j] = valueLogger[i][j]; //總價值和同容量下、和放入上一個物品的狀況一樣
+                }
+                else
+                {
+                    //在 同容量下上一個狀態 和 新增這個物品帶來的價值 間做比較
+                    valueLogger[i + 1][j] = max(valueLogger[i][j - items[i].weight] + items[i].value,
+                                                valueLogger[i][j]);
+                    //記錄(包包的CAPACITY在一個狀況下) 要放入的東西
+                    //如果這次有加入新東西 代表在這個狀態下(這個物件和這個容量) 是要選擇加入這個物品
+                    if (valueLogger[i][j - items[i].weight] + items[i].value > valueLogger[i][j])
+                    {
+                        itemLogger[i][j] = 1;
+                    }
+                }
+            }
+        }
+        int capacityLeft = capacity;
+        for (int i = items.size(); i >= 0; i--)
+        {
+            if (itemLogger[i][capacityLeft] == 1)
+            {
+                //實際放入一個物品後 剩下承重會降低
+                contents.push_back(items[i]);
+                capacityLeft -= items[i].weight;
+            }
+        }
+        totalValue = valueLogger[items.size()][capacity];
+    }
+
+    void printBackpackContents()
+    {
+        for (int i = 0; i < contents.size(); i++)
+        {
+            cout << contents[i].id << " ";
+        }
+        cout << endl
+             << totalValue << endl;
+    }
 };
 
 int main()
 {
-    return 0;
+    int maxCapacity;
+    cin >> maxCapacity;
+    BackPack backPack(maxCapacity);
+    int id, weight, value;
+    vector<Item> collectedItems;
+    while (true)
+    {
+        cin >> id >> weight >> value;
+        if (id == weight && weight == value && id == -1)
+        {
+            break;
+        }
+        collectedItems.push_back({id, weight, value});
+    }
+    backPack.addItemsAndMaximizeValue(collectedItems);
+    backPack.printBackpackContents();
 }
+© 2022 GitHub, Inc.
