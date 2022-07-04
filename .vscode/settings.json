@@ -50,6 +50,9 @@
         "xlocinfo": "cpp",
         "xloctime": "cpp",
         "xmemory": "cpp",
-        "xstddef": "cpp"
+        "xstddef": "cpp",
+        "array": "cpp",
+        "list": "cpp",
+        "numeric": "cpp"
     }
 }
