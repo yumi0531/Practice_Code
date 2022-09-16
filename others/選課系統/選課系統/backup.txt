@@ -1,2 +1,0 @@
-  - {course_id: 'B92E2G10', class_id: '1E'}
-  - {course_id: 'B92B2G16', class_id: '1B'}

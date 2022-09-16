@@ -1,0 +1,8 @@
+account: '00957209'
+password: '36288492'
+courses:
+  - {course_id: 'B9M013Z4', class_id: '1A'}
+  # - {course_id: 'B5702N57', class_id: 'A'}
+  # - {course_id: 'B5703P6G', class_id: 'A'}
+  # - {course_id: 'B5702M57', class_id: 'A'}
+  # - {course_id: 'B9M014MQ', class_id: '1A'}
