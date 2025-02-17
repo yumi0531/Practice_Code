@@ -1,3 +1,7 @@
+/*
+因數分解
+*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
